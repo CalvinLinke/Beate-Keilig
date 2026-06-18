@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import FormField from '@/components/forms/FormField'
+import Eingangsbestaetigung from '@/components/ui/Eingangsbestaetigung'
 
 interface ApplicationFormProps {
   telefon: string
@@ -63,20 +64,7 @@ export default function ApplicationForm({ telefon }: ApplicationFormProps) {
   }
 
   if (sent) {
-    return (
-      <div className="mt-[26px] bg-[#eaf2ec] border-l-4 border-gruen-hell px-6 py-[26px]">
-        <h3 className="font-condensed font-bold text-[24px] uppercase text-gruen">
-          Vielen Dank!
-        </h3>
-        <p className="text-[16px] text-[#2b352e] mt-2 leading-relaxed">
-          Ihre Bewerbung ist bei uns eingegangen. Wir melden uns in Kürze bei
-          Ihnen. Bei Fragen erreichen Sie uns direkt unter {telefon}.
-        </p>
-        <p className="text-[12.5px] text-[#8a9389] font-mono mt-[14px]">
-          [Hinweis: Formular sendet noch nicht wirklich. Versand wird später angebunden.]
-        </p>
-      </div>
-    )
+    return <Eingangsbestaetigung typ="bewerbung" telefon={telefon} />
   }
 
   return (

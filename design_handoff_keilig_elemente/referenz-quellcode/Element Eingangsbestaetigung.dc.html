@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Barlow',sans-serif;background:#F4F6F3;color:#1C201E}
+  @keyframes stampin { 0% { transform:rotate(-8deg) scale(2.6); opacity:0; } 60% { opacity:.9; } 75% { transform:rotate(-8deg) scale(.94); } 100% { transform:rotate(-8deg) scale(1); opacity:.82; } }
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#F4F6F3"/><rect x="20" y="24" width="60" height="52" fill="#fff" stroke="#cdd6cd" stroke-width="2"/><rect x="20" y="24" width="60" height="13" fill="#14572F"/><rect x="44" y="48" width="34" height="26" fill="none" stroke="#C8202A" stroke-width="3" transform="rotate(-8 61 61)"/></svg></template>
+
+<div style="padding:32px 24px;background:#F4F6F3;min-height:100vh">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C8202A;margin-bottom:10px">Spedition Keilig · Eingangsbestätigung</div>
+
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px">
+      <div style="width:560px;max-width:100%;border:1px solid #cdd6cd;background:#fff">
+        <div style="background:#14572F;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 20px">
+          <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;letter-spacing:.04em;text-transform:uppercase">Eingangsbestätigung</span>
+          <span style="font-family:monospace;font-size:12.5px;color:#bfe0cb">Nr. {{ belegNr }}</span>
+        </div>
+        <div style="padding:24px 22px 28px;position:relative;min-height:188px">
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-family:monospace;font-size:13px;color:#4d574f;max-width:330px">
+            <span style="color:#8a9389">Datum</span><span>{{ heute }}</span>
+            <span style="color:#8a9389">Betreff</span><span>Anfrage Transport</span>
+            <span style="color:#8a9389">Status</span><span style="color:#14572F;font-weight:700">Eingegangen</span>
+          </div>
+          <p style="font-size:16px;color:#1C201E;line-height:1.6;margin:18px 0 0;max-width:330px">Vielen Dank. Ihre Anfrage ist bei uns eingegangen. Wir melden uns persönlich mit einem Angebot. Eilig? Rufen Sie uns an: 0351 4602077.</p>
+
+          <sc-if value="{{ stampShown }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;right:22px;bottom:20px;transform:rotate(-8deg);border:3px solid #C8202A;padding:5px;opacity:.82;animation:stampin .5s cubic-bezier(.2,.8,.2,1)">
+              <div style="border:1.5px solid #C8202A;padding:8px 14px;text-align:center">
+                <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:21px;letter-spacing:.08em;text-transform:uppercase;color:#C8202A;line-height:1">Anfrage<br>eingegangen</div>
+                <div style="font-family:monospace;font-size:10px;letter-spacing:.04em;color:#C8202A;margin-top:5px">{{ heute }} · KEILIG</div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+      <button onClick="{{ replayStamp }}" style="background:none;border:2px solid #14572F;color:#14572F;padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase" style-hover="background:#14572F;color:#fff">Stempel erneut zeigen</button>
+    </div>
+
+    <p style="font-size:13px;color:#8a9389;margin-top:14px">Einbau-Idee: Erfolgszustand der Formulare (Anfrage und Bewerbung) statt einer schlichten Bestätigung.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:420}}">
+class Component extends DCLogic {
+  state = { stampShown: true };
+  replayStamp() {
+    this.setState({ stampShown: false });
+    setTimeout(() => this.setState({ stampShown: true }), 60);
+  }
+  renderVals() {
+    const d = new Date();
+    const heute = d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    return {
+      heute,
+      belegNr: 'KEI-' + d.getFullYear() + '-0418',
+      stampShown: this.state.stampShown,
+      replayStamp: () => this.replayStamp(),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Barlow',sans-serif;background:#F4F6F3;color:#1C201E}
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#1C201E"/><text x="50" y="46" font-family="sans-serif" font-weight="800" font-size="30" fill="#ff5b63" text-anchor="middle">125</text><rect x="26" y="58" width="48" height="5" fill="#aeb9b0"/><rect x="32" y="68" width="36" height="4" fill="#5a6b5f"/></svg></template>
+
+<div style="padding:32px 24px;background:#F4F6F3;min-height:100vh">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C8202A;margin-bottom:10px">Spedition Keilig · Kennzahlen</div>
+
+    <div ref="{{ statsRef }}" style="background:#1C201E;padding:44px 0">
+      <div style="max-width:900px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:24px">
+        <div style="text-align:center">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(38px,5vw,56px);color:#ff5b63;line-height:1">{{ statJahre }}</div>
+          <div style="margin-top:8px;font-size:14px;color:#aeb9b0">Jahre Erfahrung · seit 1897</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(38px,5vw,56px);color:#ff5b63;line-height:1">{{ statLkw }}</div>
+          <div style="margin-top:8px;font-size:14px;color:#aeb9b0">Moderne LKW</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(38px,5vw,56px);color:#ff5b63;line-height:1">{{ statAuftraege }}</div>
+          <div style="margin-top:8px;font-size:14px;color:#aeb9b0">Ausgeführte Aufträge</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(38px,5vw,56px);color:#ff5b63;line-height:1">{{ statKunden }}</div>
+          <div style="margin-top:8px;font-size:14px;color:#aeb9b0">Zufriedene Kunden</div>
+        </div>
+      </div>
+    </div>
+    <button onClick="{{ replayStats }}" style="margin-top:14px;background:none;border:2px solid #14572F;color:#14572F;padding:10px 18px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:.03em;text-transform:uppercase" style-hover="background:#14572F;color:#fff">Nochmal hochzählen</button>
+
+    <p style="font-size:13px;color:#8a9389;margin-top:14px">Zählt beim Sichtbarwerden einmal hoch (IntersectionObserver). Dezent, kein Dauerlauf.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:260}}">
+class Component extends DCLogic {
+  state = { jahre: 0, lkw: 0, auftraege: 0, kunden: 0, done: false };
+  statsRef = React.createRef();
+
+  componentDidMount() {
+    if ('IntersectionObserver' in window && this.statsRef.current) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting && !this.state.done) this.run(); });
+      }, { threshold: 0.4 });
+      this._io.observe(this.statsRef.current);
+    } else { this.run(); }
+  }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+
+  run() {
+    this.setState({ done: true });
+    const targets = { jahre: 125, lkw: 8, auftraege: 1000, kunden: 100 };
+    const dur = 1400, t0 = performance.now();
+    const tick = (now) => {
+      let p = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      this.setState({
+        jahre: Math.round(targets.jahre * e), lkw: Math.round(targets.lkw * e),
+        auftraege: Math.round(targets.auftraege * e), kunden: Math.round(targets.kunden * e),
+      });
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  replay() { this.setState({ jahre: 0, lkw: 0, auftraege: 0, kunden: 0 }); requestAnimationFrame(() => this.run()); }
+
+  renderVals() {
+    const fmt = (n) => n.toLocaleString('de-DE');
+    return {
+      statsRef: this.statsRef,
+      statJahre: fmt(this.state.jahre),
+      statLkw: fmt(this.state.lkw),
+      statAuftraege: fmt(this.state.auftraege) + '+',
+      statKunden: fmt(this.state.kunden) + '+',
+      replayStats: () => this.replay(),
+    };
+  }
+}
+</script>
+</body>
+</html>

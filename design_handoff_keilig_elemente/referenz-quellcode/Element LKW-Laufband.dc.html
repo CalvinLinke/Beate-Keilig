@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Barlow',sans-serif;background:#F4F6F3;color:#1C201E}
+  @keyframes kspin { to { transform: rotate(360deg); } }
+  @keyframes kpuff { 0% { opacity:0; transform: translate(0,0) scale(.6); } 20% { opacity:.5; } 100% { opacity:0; transform: translate(-16px,-14px) scale(1.3); } }
+  @keyframes kdrive { from { left:-280px; } to { left:100%; } }
+  @keyframes kbob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-3px); } }
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#14572F"/><rect x="20" y="42" width="40" height="22" fill="#fff"/><rect x="60" y="48" width="18" height="16" fill="#fff"/><circle cx="34" cy="70" r="7" fill="#1C201E"/><circle cx="66" cy="70" r="7" fill="#1C201E"/><polygon points="24,46 33,46 40,53 33,60 24,60 30,53" fill="#C8202A"/></svg></template>
+
+<div style="padding:28px 24px;background:#F4F6F3">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#C8202A;margin-bottom:10px">Spedition Keilig · Lauf-Band</div>
+
+    <!-- DROP-IN ELEMENT: schmales Lauf-Band -->
+    <div style="position:relative;height:150px;background:#fff;border:1px solid #e3e8e3;overflow:hidden">
+      <div style="position:absolute;left:0;right:0;bottom:22px;height:3px;background:repeating-linear-gradient(90deg,#c4cfc6 0 18px,transparent 18px 34px)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:25px;height:1px;background:#dde4dd"></div>
+
+      <div style="position:absolute;bottom:10px;left:-280px;animation:kdrive 7s linear infinite">
+        <div style="animation:kbob 1.2s ease-in-out infinite">
+          <!-- TRUCK -->
+          <div style="position:relative;width:260px;height:132px">
+            <div style="position:absolute;left:150px;top:4px;width:5px;height:12px;background:#1C201E"></div>
+            <div style="position:absolute;left:140px;top:2px;width:10px;height:10px;background:#b9c4bb;border-radius:50%;animation:kpuff 1.8s ease-out infinite"></div>
+            <div style="position:absolute;left:140px;top:2px;width:8px;height:8px;background:#cdd6cd;border-radius:50%;animation:kpuff 1.8s ease-out .9s infinite"></div>
+            <div style="position:absolute;left:6px;top:14px;width:156px;height:64px;background:#14572F"></div>
+            <div style="position:absolute;left:6px;top:70px;width:156px;height:8px;background:#C8202A"></div>
+            <div style="position:absolute;left:13px;top:23px;width:16px;height:16px;background:#fff;clip-path:polygon(0 0,58% 0,100% 50%,58% 100%,0 100%,42% 50%)"></div>
+            <div style="position:absolute;left:37px;top:18px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:27px;line-height:1;letter-spacing:.04em;color:#fff">KEILIG</div>
+            <div style="position:absolute;left:13px;top:47px;width:144px;font-style:italic;font-weight:500;font-size:9.5px;line-height:1.15;color:rgba(255,255,255,.92)">„Haben Sie es eilig? Dann fahren Sie es mit Keilig."</div>
+            <div style="position:absolute;left:162px;top:34px;width:62px;height:44px;background:#14572F;clip-path:polygon(0 0,62% 0,100% 42%,100% 100%,0 100%)"></div>
+            <div style="position:absolute;left:168px;top:40px;width:30px;height:15px;background:#cfe0d8;clip-path:polygon(0 0,86% 0,100% 80%,0 100%)"></div>
+            <div style="position:absolute;left:162px;top:64px;width:62px;height:6px;background:#C8202A"></div>
+            <div style="position:absolute;left:218px;top:66px;width:6px;height:6px;background:#ffd24a"></div>
+            <div style="position:absolute;left:224px;top:72px;width:6px;height:10px;background:#1C201E"></div>
+            <div style="position:absolute;left:8px;top:78px;width:216px;height:6px;background:#1C201E"></div>
+            <div style="position:absolute;left:36px;top:80px;width:36px;height:36px;border-radius:50%;background:#1C201E"></div>
+            <div style="position:absolute;left:44px;top:88px;width:20px;height:20px;border-radius:50%;background:#39443d"></div>
+            <div style="position:absolute;left:44px;top:88px;width:20px;height:20px;animation:kspin .7s linear infinite">
+              <div style="position:absolute;left:9px;top:1px;width:2px;height:18px;background:#7fae90"></div>
+              <div style="position:absolute;left:1px;top:9px;width:18px;height:2px;background:#7fae90"></div>
+              <div style="position:absolute;left:7.5px;top:7.5px;width:5px;height:5px;border-radius:50%;background:#C8202A"></div>
+            </div>
+            <div style="position:absolute;left:170px;top:80px;width:36px;height:36px;border-radius:50%;background:#1C201E"></div>
+            <div style="position:absolute;left:178px;top:88px;width:20px;height:20px;border-radius:50%;background:#39443d"></div>
+            <div style="position:absolute;left:178px;top:88px;width:20px;height:20px;animation:kspin .7s linear infinite">
+              <div style="position:absolute;left:9px;top:1px;width:2px;height:18px;background:#7fae90"></div>
+              <div style="position:absolute;left:1px;top:9px;width:18px;height:2px;background:#7fae90"></div>
+              <div style="position:absolute;left:7.5px;top:7.5px;width:5px;height:5px;border-radius:50%;background:#C8202A"></div>
+            </div>
+          </div>
+          <!-- /TRUCK -->
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:#8a9389;margin-top:10px">Einbau-Idee: schmaler Streifen zwischen Hero und Zahlenband. Fährt im Loop quer durch.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1000,&quot;height&quot;:230}}"></script>
+</body>
+</html>

@@ -6,18 +6,13 @@ import seo from '@/content/seo.json'
 import ChevronIcon from '@/components/ui/ChevronIcon'
 import Placeholder from '@/components/ui/Placeholder'
 import CtaSection from '@/components/sections/CtaSection'
+import TruckBand from '@/components/ui/TruckBand'
+import Kennzahlen from '@/components/ui/Kennzahlen'
 
 export const metadata: Metadata = {
   title: seo.startseite.title,
   description: seo.startseite.description,
 }
-
-const stats = [
-  { num: 'seit 1897', label: 'Über 125 Jahre Erfahrung' },
-  { num: '8', label: 'Moderne LKW · Mercedes-Benz & Volvo' },
-  { num: '1.000+', label: 'Ausgeführte Aufträge' },
-  { num: '100+', label: 'Zufriedene Kunden' },
-]
 
 const usps = [
   {
@@ -127,31 +122,11 @@ export default function Startseite() {
         </div>
       </section>
 
-      {/* ===================== ZAHLENBAND ===================== */}
-      <section
-        className="bg-anthrazit text-white -mt-px"
-        style={{
-          clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%)',
-          paddingTop: 'clamp(48px, 6vw, 72px)',
-          paddingBottom: 'calc(clamp(48px, 6vw, 72px) + 40px)',
-        }}
-      >
-        <div className="max-w-container mx-auto px-6 grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-6">
-          {stats.map((s) => (
-            <div key={s.num} className="text-center py-2 px-1">
-              <div
-                className="font-condensed font-extrabold text-white leading-none"
-                style={{ fontSize: 'clamp(38px, 5vw, 54px)' }}
-              >
-                <span className="text-[#ff5b63]">{s.num}</span>
-              </div>
-              <div className="mt-2 text-[14.5px] text-[#aeb9b0] tracking-[0.02em] leading-[1.35]">
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ===================== LKW-LAUFBAND ===================== */}
+      <TruckBand speed={7} />
+
+      {/* ===================== ZAHLENBAND (hochzählend) ===================== */}
+      <Kennzahlen />
 
       {/* ===================== LEISTUNGEN ÜBERBLICK ===================== */}
       <section style={{ padding: 'clamp(64px, 8vw, 104px) 0' }}>

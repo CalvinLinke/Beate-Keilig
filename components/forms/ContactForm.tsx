@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import FormField from '@/components/forms/FormField'
+import Eingangsbestaetigung from '@/components/ui/Eingangsbestaetigung'
 
 interface ContactFormProps {
   telefon: string
@@ -64,20 +65,7 @@ export default function ContactForm({ telefon }: ContactFormProps) {
   }
 
   if (sent) {
-    return (
-      <div className="mt-[22px] bg-[#eaf2ec] border-l-4 border-gruen-hell px-6 py-[26px]">
-        <h3 className="font-condensed font-bold text-[24px] uppercase text-gruen">
-          Anfrage erhalten. Danke!
-        </h3>
-        <p className="text-[16px] text-[#2b352e] mt-2 leading-relaxed">
-          Wir schauen uns Ihre Anfrage persönlich an und melden uns zeitnah mit
-          einem Angebot. Eilig? Rufen Sie uns gern direkt an: {telefon}.
-        </p>
-        <p className="text-[12.5px] text-[#8a9389] font-mono mt-[14px]">
-          [Hinweis: Formular sendet noch nicht wirklich. Versand wird später angebunden.]
-        </p>
-      </div>
-    )
+    return <Eingangsbestaetigung typ="anfrage" telefon={telefon} />
   }
 
   return (

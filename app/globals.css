@@ -58,6 +58,49 @@
   }
 }
 
+/* ── Keyframe-Animationen für die drei Design-Elemente ── */
+
+@keyframes kspin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes kpuff {
+  0%   { opacity: 0;   transform: translate(0, 0) scale(0.6); }
+  20%  { opacity: 0.5; }
+  100% { opacity: 0;   transform: translate(-16px, -14px) scale(1.3); }
+}
+
+@keyframes kdrive {
+  from { left: -280px; }
+  to   { left: 100%; }
+}
+
+@keyframes kbob {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-3px); }
+}
+
+@keyframes stampin {
+  0%   { transform: rotate(-8deg) scale(2.6); opacity: 0; }
+  60%  { opacity: 0.9; }
+  75%  { transform: rotate(-8deg) scale(0.94); }
+  100% { transform: rotate(-8deg) scale(1); opacity: 0.82; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-kdrive,
+  .animate-kbob,
+  .animate-kspin,
+  .animate-kpuff {
+    animation: none !important;
+  }
+  .animate-stampin {
+    animation: none !important;
+    opacity: 0.82 !important;
+    transform: rotate(-8deg) scale(1) !important;
+  }
+}
+
 @layer utilities {
   /* Keil-Formen via clip-path (Leitmotiv der Marke) */
   .clip-keil {
