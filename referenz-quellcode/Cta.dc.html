@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<section style="background:#14572F;color:#fff;clip-path:polygon(0 56px,100% 0,100% 100%,0 100%);padding:calc(clamp(48px,6vw,80px) + 56px) 0 clamp(48px,6vw,80px);width:100%">
+  <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(24px,4vw,48px);align-items:center">
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#b9e0c6;margin-bottom:12px">Bereit für Ihre Anfrage?</div>
+      <h2 style="font-size:clamp(30px,4.2vw,48px);font-weight:800;text-transform:uppercase;max-width:14em;text-wrap:balance">Sagen Sie uns, was zu fahren ist</h2>
+      <p style="font-size:17px;color:#cfe3d6;margin-top:14px;line-height:1.65;max-width:32em">Ein kurzer Anruf oder ein paar Zeilen genügen. Wir melden uns persönlich mit einem klaren Angebot zurück.</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-start">
+      <button onClick="{{ goKontakt }}" style="background:#C8202A;color:#fff;border:none;padding:16px 30px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;letter-spacing:.04em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%)" style-hover="background:#a91923">Angebot anfragen</button>
+      <a href="{{ telHref }}" style="display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(255,255,255,.55);color:#fff;padding:14px 26px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;letter-spacing:.03em;text-transform:uppercase" style-hover="border-color:#fff;background:rgba(255,255,255,.08)">☎ {{ tel }}</a>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:360},&quot;goKontakt&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;() =&gt; void&quot;},&quot;tel&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0351 4602077&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;telHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;tel:+493514602077&quot;,&quot;tsType&quot;:&quot;string&quot;}}"></script>
+</body>
+</html>

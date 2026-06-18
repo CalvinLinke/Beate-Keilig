@@ -1,0 +1,20 @@
+{
+  "name": "C & B Keilig Transport GmbH",
+  "marke": "Spedition Keilig",
+  "slogan": "Haben Sie es eilig? Dann fahren Sie es mit Keilig.",
+  "adresse": {
+    "strasse": "Tulpenstr. 8",
+    "plz": "01705",
+    "ort": "Freital",
+    "region": "Raum Dresden, Sachsen"
+  },
+  "telefon": "0351 4602077",
+  "email": "info@spedition-keilig.de",
+  "oeffnungszeiten": "Mo bis Fr 07:00 bis 17:00 Uhr",
+  "register": {
+    "gericht": "Amtsgericht Dresden",
+    "nummer": "HRB 19925"
+  },
+  "gruendung": 1897,
+  "inhaber": ["Beate Keilig", "Sascha Keilig"]
+}

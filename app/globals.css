@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+  }
+
+  ::placeholder {
+    color: #9aa79e;
+  }
+
+  /* Fokuszustände sichtbar machen */
+  :focus-visible {
+    outline: 2px solid #14572F;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Keil-Formen via clip-path (Leitmotiv der Marke) */
+  .clip-keil {
+    clip-path: polygon(0 0, 58% 0, 100% 50%, 58% 100%, 0 100%, 42% 50%);
+  }
+
+  .clip-btn {
+    clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  }
+
+  .clip-btn-sm {
+    clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  }
+
+  /* Sektionsübergänge diagonal */
+  .clip-hero-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 64px));
+  }
+
+  .clip-stats {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 0 100%);
+  }
+
+  .clip-cta-top {
+    clip-path: polygon(0 56px, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .clip-footer-top {
+    clip-path: polygon(0 48px, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* Platzhalter-Bild: diagonal gestreifte Fläche */
+  .placeholder-bg-dark {
+    background: repeating-linear-gradient(
+      135deg,
+      #1d6639,
+      #1d6639 14px,
+      #1a5c34 14px,
+      #1a5c34 28px
+    );
+  }
+
+  .placeholder-bg-light {
+    background: repeating-linear-gradient(
+      135deg,
+      #e3e8e3,
+      #e3e8e3 14px,
+      #dce3dc 14px,
+      #dce3dc 28px
+    );
+  }
+
+  /* Transition-Helfer */
+  .transition-hover {
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+}

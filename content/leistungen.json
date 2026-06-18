@@ -1,0 +1,34 @@
+[
+  {
+    "id": "guetertransport",
+    "titel": "Gütertransport deutschlandweit",
+    "kurztext": "Transport aller gängigen Güter, deutschlandweit. Vom Stückgut bis zur kompletten Ladung. Pünktlich und ordentlich.",
+    "text": "Wir transportieren alle gängigen Güter zuverlässig durch ganz Deutschland. Ob ein einzelnes Stück oder die volle Ladung: Wir planen die Tour so, dass Ihre Ware pünktlich und ordentlich ankommt. Sie haben dabei immer einen festen Ansprechpartner an Ihrer Seite.",
+    "tags": ["Stückgut", "Komplettladung", "Flächendeckend"],
+    "bild": "[Platzhalter: LKW auf der Autobahn]"
+  },
+  {
+    "id": "international",
+    "titel": "Transporte nach Polen & Tschechien",
+    "kurztext": "Regelmäßige internationale Fahrten zu unseren Nachbarn. Kurze Wege, verlässliche Termine.",
+    "text": "Unsere Nachbarn liegen uns nah. Internationale Fahrten nach Polen und Tschechien gehören für uns zum Alltag. Wir kennen die Strecken, die Abläufe und die Zollformalitäten.",
+    "tags": ["Polen", "Tschechien", "Grenzverkehr"],
+    "bild": "[Platzhalter: Grenzübergang / Europakarte]"
+  },
+  {
+    "id": "lager",
+    "titel": "Wareneinlagerung & Lager",
+    "kurztext": "Sichere Einlagerung und Lagerlogistik, wenn Ihre Ware kurz oder länger einen Platz braucht.",
+    "text": "Manchmal braucht Ware einfach einen sicheren Platz. Für ein paar Tage oder länger. Wir lagern Ihre Güter ein und behalten den Überblick, damit alles dann verfügbar ist, wenn Sie es brauchen.",
+    "tags": ["Lagerlogistik", "Kurz- & Langzeit", "Übersichtlich"],
+    "bild": "[Platzhalter: Lagerhalle innen]"
+  },
+  {
+    "id": "kran",
+    "titel": "Kran & Stapler bei Bedarf",
+    "kurztext": "Bei Bedarf organisieren wir Kran und Stapler fürs Be- und Entladen gleich mit dazu.",
+    "text": "Nicht jede Ladung lässt sich von Hand bewegen. Wenn es besondere Technik braucht, organisieren wir Kran und Stapler fürs Be- und Entladen. Sagen Sie uns bei der Anfrage einfach, was gebraucht wird.",
+    "tags": ["Kran", "Stapler", "Verladung"],
+    "bild": "[Platzhalter: Beladung mit Stapler]"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  { "id": "lkw-01", "name": "Sattelzug 01", "marke": "Mercedes-Benz", "bild": "[Platzhalter: LKW 01]" },
+  { "id": "lkw-02", "name": "Sattelzug 02", "marke": "Mercedes-Benz", "bild": "[Platzhalter: LKW 02]" },
+  { "id": "lkw-03", "name": "Sattelzug 03", "marke": "Volvo",          "bild": "[Platzhalter: LKW 03]" },
+  { "id": "lkw-04", "name": "Sattelzug 04", "marke": "Volvo",          "bild": "[Platzhalter: LKW 04]" },
+  { "id": "lkw-05", "name": "Sattelzug 05", "marke": "Mercedes-Benz", "bild": "[Platzhalter: LKW 05]" },
+  { "id": "lkw-06", "name": "Sattelzug 06", "marke": "Volvo",          "bild": "[Platzhalter: LKW 06]" },
+  { "id": "lkw-07", "name": "Sattelzug 07", "marke": "Mercedes-Benz", "bild": "[Platzhalter: LKW 07]" },
+  { "id": "lkw-08", "name": "Sattelzug 08", "marke": "Volvo",          "bild": "[Platzhalter: LKW 08]" }
+]
